@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="slovopacana100procentov/App.axaml" value="slovopacana100procentov/slovopacana100procentov.csproj" />
+        <entry key="slovopacana100procentov/Views/AddPlayerWindow.axaml" value="slovopacana100procentov/slovopacana100procentov.csproj" />
+        <entry key="slovopacana100procentov/Views/LoginWindow.axaml" value="slovopacana100procentov/slovopacana100procentov.csproj" />
+        <entry key="slovopacana100procentov/Views/MainWindow.axaml" value="slovopacana100procentov/slovopacana100procentov.csproj" />
+        <entry key="slovopacana100procentov/Views/MessageBox.axaml" value="slovopacana100procentov/slovopacana100procentov.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
