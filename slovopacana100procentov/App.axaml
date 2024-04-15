@@ -7,9 +7,15 @@
 
     <Application.DataTemplates>
         <local:ViewLocator/>
+        
     </Application.DataTemplates>
   
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"></StyleInclude>
+        <Style Selector="Window">
+            <Setter Property="Title" Value="СуперВолейбол"></Setter>
+            <Setter Property="Icon" Value="/Assets/logo.ico"></Setter>
+        </Style>
     </Application.Styles>
 </Application>

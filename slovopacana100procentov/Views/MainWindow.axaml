@@ -6,15 +6,66 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="slovopacana100procentov.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
+        xmlns:models="using:slovopacana100procentov.Models"
         Title="slovopacana100procentov">
 
     <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+    <TabControl>
+        <TabItem Header="Players">
+            <Grid RowDefinitions="Auto, *">
+                <Grid Grid.Row="0" Background="Aqua" Height="50" ColumnDefinitions="*, *, *, *">
+                    <Button x:Name="addPlayerButton" VerticalAlignment="Stretch" Content="добавить" FontSize="20" HorizontalAlignment="Stretch" Margin="6" Grid.Column="0"></Button>
+                    <Button x:Name="deletePlayerButton" VerticalAlignment="Stretch" Content="delete" FontSize="20" HorizontalAlignment="Stretch" Margin="6" Grid.Column="1"></Button>
+                    <TextBox x:Name="playerFilterTextbox" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="6" Grid.Column="2"></TextBox>
+                    <ComboBox x:Name="playerPositionFilterCombobox" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="6" Grid.Column="3"></ComboBox>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <DataGrid x:Name="playersGrid" Background="Blue" x:CompileBindings="False" ItemsSource="{Binding TeamPlayers}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding player.name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Позиция" Binding="{Binding player.position}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Вес" Binding="{Binding player.weight}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Рост" Binding="{Binding player.height}"></DataGridTextColumn>
+                            <DataGridTemplateColumn Header="Дата рождения">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="models:TeamPlayer">
+                                        <CalendarDatePicker SelectedDate="{Binding player.birthDay}"></CalendarDatePicker>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Дата начала игры">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="models:TeamPlayer">
+                                        <CalendarDatePicker SelectedDate="{Binding player.gameDate}"></CalendarDatePicker>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Комадна" Binding="{Binding team.name}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Teams">
+            <Grid RowDefinitions="Auto, *">
+                <Grid Grid.Row="0" Background="Aqua" Height="50" ColumnDefinitions="*, *, *, *">
+                    <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="6" Grid.Column="0"></Button>
+                    <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="6" Grid.Column="1"></Button>
+                    <TextBox VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="6" Grid.Column="2"></TextBox>
+                    <ComboBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="6" Grid.Column="3"></ComboBox>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <DataGrid x:Name="teamsGrid" x:CompileBindings="False" ItemsSource="{Binding TeamsView}" Background="Blue">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding name}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Grid>
+        </TabItem>
+    </TabControl>
+    
 </Window>

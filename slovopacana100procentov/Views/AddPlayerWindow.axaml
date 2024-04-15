@@ -2,8 +2,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:slovopacana100procentov.ViewModels"
+        x:DataType="vm:MainWindowViewModel"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="slovopacana100procentov.Views.AddPlayerWindow"
-        Title="AddPlayerWindow">
-    Welcome to Avalonia!
+        WindowStartupLocation="CenterScreen">
+        <Grid RowDefinitions="*, *, *, *, *, *, *, *">
+                <Grid Grid.Row="0" ColumnDefinitions="*, *">
+                        <TextBlock Grid.Column="0">Имя</TextBlock>
+                        <TextBox Grid.Column="1" x:Name="nameText"></TextBox>
+                </Grid>
+                <Grid Grid.Row="1" ColumnDefinitions="*, *">
+                        <TextBlock Grid.Column="0">Позиция</TextBlock>
+                        <NumericUpDown Grid.Column="1" Maximum="5" Increment="1" Minimum="1" x:Name="positionNumeric"></NumericUpDown>
+                </Grid>
+                <Grid Grid.Row="2" ColumnDefinitions="*, *">
+                        <TextBlock Grid.Column="0">Вес</TextBlock>
+                        <NumericUpDown Grid.Column="1" Increment="0.1" x:Name="weightText"></NumericUpDown>
+                </Grid>
+                <Grid Grid.Row="3" ColumnDefinitions="*, *">
+                        <TextBlock Grid.Column="0">Рост</TextBlock>
+                        <NumericUpDown Grid.Column="1" Increment="1" Minimum="1" x:Name="heightText"></NumericUpDown>
+                </Grid>
+                <Grid Grid.Row="4" ColumnDefinitions="*, *">
+                        <TextBlock Grid.Column="0">Дата рождения</TextBlock>
+                        <DatePicker Grid.Column="1" x:Name="birthDayDate"></DatePicker>
+                </Grid>
+                <Grid Grid.Row="5" ColumnDefinitions="*, *">
+                        <TextBlock Grid.Column="0">Дата начала игры</TextBlock>
+                        <DatePicker Grid.Column="1" x:Name="gameDate"></DatePicker>
+                </Grid>
+                <Grid Grid.Row="6" ColumnDefinitions="*, *">
+                        <TextBlock Grid.Column="0">Команда</TextBlock>
+                        <ComboBox ItemsSource="{Binding Teams}" Grid.Column="1" x:Name="teamCombobox"></ComboBox>
+                </Grid>
+                <Grid Grid.Row="7" ColumnDefinitions="*, *">
+                        <Button x:Name="addButton" Width="200" Height="80" Grid.Column="0" Content="добавить"></Button>
+                        <Button x:Name="cancelButton" Width="200" Height="80" Grid.Column="1" Content="отмена"></Button>
+                </Grid>
+        </Grid>
 </Window>

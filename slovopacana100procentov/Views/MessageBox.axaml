@@ -3,7 +3,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="300"
+        Height="200"
         x:Class="slovopacana100procentov.Views.MessageBox"
-        Title="MessageBox">
-    Welcome to Avalonia!
+        WindowStartupLocation="CenterScreen">
+        <Grid RowDefinitions="*, Auto">
+                <TextBlock x:Name="text" Grid.Row="0"></TextBlock>
+                <StackPanel Grid.Row="1" x:Name="buttonsPanel"></StackPanel>
+        </Grid>
 </Window>
